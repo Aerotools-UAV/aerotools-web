@@ -2,7 +2,7 @@
 
 Código de la nueva web de Aerotools.
 
-Un push a `main` lanza el workflow `Publish site`, que copia el contenido a `_site/` y lo publica
-en el repo `Aerotools-UAV/aerotools-site-prueba` (GitHub Pages) con la deploy key `SITE_DEPLOY_KEY`.
+Un push a `main` se publica en https://prueba.aerotools.es mediante GitHub Pages (rama `main`, raíz `/`).
+No hay workflow de despliegue. El dominio se define en el fichero `CNAME`.
 
-Entorno de pruebas: https://prueba.aerotools.es
+El repo es público: nunca subir claves, secretos ni credenciales.
