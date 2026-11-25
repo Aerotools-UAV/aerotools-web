@@ -1,0 +1,3 @@
+# Copiar a .dev.vars (no se sube a git) para probar /api/contacto con `npx wrangler pages dev dist`
+APPS_SCRIPT_URL=https://script.google.com/macros/s/AKfycbzL6qMsHTi7nN50XIChm2NlJ243GZBEGtrWMkXqaTkfJ0sJBPmytW0OaDivgNdifFhj/exec
+CONTACT_SECRET=pidelo-a-rodrigo

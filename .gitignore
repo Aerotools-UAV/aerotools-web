@@ -17,3 +17,6 @@ npm-debug.log*
 # OS
 .DS_Store
 Thumbs.db
+
+# Secretos locales de Wrangler (Pages Functions)
+.dev.vars

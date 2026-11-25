@@ -5,7 +5,7 @@ Código de la nueva web de Aerotools.
 ## Flujo de trabajo
 
 Publicación con Cloudflare Pages (proyecto `aerotools-web`):
-- `dev` = rama de trabajo, sin publicar: se prueba en local con `python3 -m http.server 8080`.
+- `dev` = rama de trabajo, sin publicar: se prueba en local con `npm run dev` (diseño) o `npm run build && npx wrangler pages dev dist` (con formulario, ver `docs/CHRISTIAN.md`).
 - `main` = lo publicado en https://prueba.aerotools.es (merge de `dev` a `main`). www pendiente.
 
 El repo es público: nunca subir claves, secretos ni credenciales.
