@@ -23,3 +23,9 @@ Redeploy para que apliquen.
 ## Notas
 - Rate-limit: sin KV está desactivado. Para activarlo, enlazar un KV como `CONTACT_KV` (5 envíos/hora por IP). Opcional: Turnstile.
 - Prueba rápida: `curl -X POST https://aerotools.es/api/contacto -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"nombre":"Test","email":"a@b.es","mensaje":"hola"}'`
+
+## 4. Probar en local (localhost)
+`npm run dev` (Astro) no ejecuta Pages Functions: ahí el formulario da «Respuesta no válida del servidor».
+1. `cp .dev.vars.example .dev.vars` y rellenar `CONTACT_SECRET` (pedírselo a Rodrigo, nunca en el repo). `.dev.vars` está en `.gitignore`.
+2. `npm run build && npx wrangler pages dev dist --port 8788`
+3. Abrir http://localhost:8788/contacto/ y enviar. Cada envío = correo real a info@aerotools.es: poner «PRUEBA» en el nombre.
