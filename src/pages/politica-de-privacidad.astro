@@ -1,0 +1,70 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../data/site';
+---
+
+<Layout title="Política de Privacidad">
+  <section class="bg-brand-darker text-white py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-accent">
+        <a href="/" class="hover:underline">Inicio</a> / Política de Privacidad
+      </p>
+      <h1 class="text-4xl font-extrabold mt-3">Política de Privacidad</h1>
+    </div>
+  </section>
+
+  <article class="py-16 bg-brand-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-gray-300 leading-relaxed">
+      <p>
+        La presente declaración de privacidad explica qué datos personales se recopilan de los usuarios y cómo se
+        utilizan. Aerotools ha adecuado esta web a las exigencias de la Ley Orgánica 3/2018 (LOPD-GDD), el Reglamento
+        (UE) 2016/679 (RGPD) y la Ley 34/2002 (LSSICE).
+      </p>
+
+      <h2 class="text-2xl font-bold text-white pt-4">Responsable del tratamiento de datos personales</h2>
+      <ul class="list-disc pl-6 space-y-1">
+        <li><strong class="text-white">Identidad del Responsable:</strong> {SITE.legalName}</li>
+        <li><strong class="text-white">Nombre comercial:</strong> Aerotools</li>
+        <li><strong class="text-white">NIF/CIF:</strong> {SITE.nif}</li>
+        <li><strong class="text-white">Dirección:</strong> {SITE.addressLines.join(', ')}</li>
+        <li><strong class="text-white">Correo electrónico:</strong> {SITE.email}</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-white pt-4">Principios aplicados en el tratamiento de datos</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong class="text-white">Licitud, lealtad y transparencia:</strong> siempre se requerirá el consentimiento previo e informado del usuario.</li>
+        <li><strong class="text-white">Minimización de datos:</strong> solo se solicitarán los datos estrictamente necesarios.</li>
+        <li><strong class="text-white">Limitación del plazo de conservación:</strong> los datos se mantendrán únicamente durante el tiempo necesario para los fines del tratamiento.</li>
+        <li><strong class="text-white">Integridad y confidencialidad:</strong> se aplican medidas técnicas y organizativas para garantizar la seguridad de los datos.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-white pt-4">Derechos sobre los datos</h2>
+      <p>Cualquier persona interesada tiene derecho a:</p>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Solicitar el acceso a sus datos personales.</li>
+        <li>Solicitar su rectificación o supresión.</li>
+        <li>Solicitar la limitación de su tratamiento.</li>
+        <li>Oponerse al tratamiento.</li>
+        <li>Solicitar la portabilidad de los datos.</li>
+      </ul>
+      <p>
+        Puedes ejercer estos derechos escribiendo a
+        <a href={`mailto:${SITE.email}`} class="text-brand-accent font-semibold hover:underline">{SITE.email}</a>,
+        así como presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD).
+      </p>
+
+      <h2 class="text-2xl font-bold text-white pt-4">Legitimación y conservación</h2>
+      <p>
+        La base legal para el tratamiento de los datos es el consentimiento del interesado. Los datos personales
+        proporcionados se conservarán hasta que el interesado solicite su supresión.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white pt-4">Seguridad y revocabilidad</h2>
+      <p>
+        Esta web utiliza cifrado HTTPS (SSL) para proteger la transmisión de datos. El consentimiento prestado es
+        revocable en cualquier momento comunicándolo a Aerotools mediante correo electrónico a
+        <a href={`mailto:${SITE.email}`} class="text-brand-accent font-semibold hover:underline">{SITE.email}</a>.
+      </p>
+    </div>
+  </article>
+</Layout>

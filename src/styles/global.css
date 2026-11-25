@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+@theme {
+  /* Official ATOM Design System Tokens (Suite & Results) */
+  --color-brand-bg: #0B0B0B;
+  --color-brand-darker: #050505;
+  --color-brand-dark: #0D0E12;
+  --color-brand-surface: #13151B;
+  --color-brand-accent: #EE763C;
+  --color-brand-accent-hover: #f98b55;
+  --color-brand-muted: rgba(255, 255, 255, 0.68);
+  --color-brand-light: rgba(255, 255, 255, 0.05);
+  --color-brand-border: rgba(255, 255, 255, 0.1);
+  --font-sans: "Inter", "Kumbh Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --primary: #EE763C;
+  --primary-glow: rgba(238, 118, 60, 0.35);
+  --primary-hover: #f98b55;
+  --bg-dark: #0B0B0B;
+  --bg-darker: #050505;
+  --glass-bg: rgba(255, 255, 255, 0.045);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 20px;
+  --shadow-premium: 0 10px 40px rgba(0, 0, 0, 0.7);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    color: #ffffff;
+    background-color: var(--bg-dark);
+    color-scheme: dark;
+  }
+
+  body {
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--bg-dark);
+  }
+}
+
+/* Custom ATOM Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Technical Grid Overlay */
+.bg-tech-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* ATOM Glassmorphism Panels */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-premium);
+}
+
+.glass-card {
+  background: rgba(18, 22, 32, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(238, 118, 60, 0.06);
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: rgba(238, 118, 60, 0.45);
+  box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.8), 0 0 32px rgba(238, 118, 60, 0.16);
+  transform: translateY(-3px);
+}
+
+/* ATOM Glass CTA Button */
+.glass-button-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.85rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  background: linear-gradient(135deg, rgba(238, 118, 60, 0.34) 0%, rgba(238, 118, 60, 0.16) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(238, 118, 60, 0.55);
+  box-shadow: 0 0 24px -4px rgba(238, 118, 60, 0.45);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.glass-button-cta:hover {
+  background: linear-gradient(135deg, rgba(238, 118, 60, 0.52) 0%, rgba(238, 118, 60, 0.28) 100%);
+  border-color: rgba(238, 118, 60, 0.9);
+  box-shadow: 0 0 34px 0 rgba(238, 118, 60, 0.65);
+  transform: translateY(-2px);
+}
+
+/* ATOM Pill Tag */
+.atom-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.38rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(238, 118, 60, 0.14);
+  border: 1px solid rgba(238, 118, 60, 0.35);
+  color: #EE763C;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+}
+
+.live-fleet-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #EE763C;
+  box-shadow: 0 0 8px #EE763C;
+  animation: livePulse 2s infinite ease-in-out;
+}
+
+@keyframes livePulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+/* Animated Gradient Text (#EE763C -> #FFD060) */
+.text-gradient-animated {
+  background: linear-gradient(
+    to right,
+    #EE763C 0%,
+    #f98b55 30%,
+    #FFD060 55%,
+    #f98b55 75%,
+    #EE763C 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradientFlow 5s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textGradientFlow {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Border Beam — Luz que recorre el perímetro */
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes borderBeamRotate {
+  to { --border-angle: 360deg; }
+}
+
+.border-beam {
+  position: relative;
+}
+
+.border-beam::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0%,
+    rgba(238, 118, 60, 0.4) 10%,
+    rgba(255, 180, 80, 1) 20%,
+    rgba(238, 118, 60, 0.4) 30%,
+    transparent 40%,
+    transparent 50%,
+    rgba(238, 118, 60, 0.4) 60%,
+    rgba(255, 180, 80, 1) 70%,
+    rgba(238, 118, 60, 0.4) 80%,
+    transparent 90%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 10;
+  animation: borderBeamRotate 6s linear infinite;
+}
+
+/* Logo Breathing Glow */
+@keyframes logoBreathing {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(238, 118, 60, 0.25)) drop-shadow(0 0 8px rgba(238, 118, 60, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(238, 118, 60, 0.65)) drop-shadow(0 0 20px rgba(238, 118, 60, 0.28));
+  }
+}
+
+.logo-breathing {
+  animation: logoBreathing 3.5s ease-in-out infinite;
+}

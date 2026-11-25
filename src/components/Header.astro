@@ -1,0 +1,157 @@
+---
+import { Image } from 'astro:assets';
+import { SITE } from '../data/site';
+import { IMAGES } from '../data/images';
+import { getAlternatePath, UI, type Lang } from '../data/i18n';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+const t = UI[lang];
+const currentPath = Astro.url.pathname;
+const homeHref = lang === 'es' ? '/' : '/en/';
+const esPath = getAlternatePath(currentPath, 'es');
+const enPath = getAlternatePath(currentPath, 'en');
+---
+
+<header class="sticky top-0 z-40 bg-[#0B0B0B]/75 backdrop-blur-xl border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href={homeHref} class="flex items-center shrink-0" aria-label={SITE.name}>
+        <Image
+          src={IMAGES.aerotoolsLogo}
+          alt={SITE.name}
+          width={180}
+          class="h-10 sm:h-11 w-auto object-contain logo-breathing"
+          loading="eager"
+        />
+      </a>
+
+      <!-- ATOM Glass Navigation Pill -->
+      <nav
+        class="hidden md:flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/[0.04] backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+        aria-label={lang === 'es' ? 'Navegación principal' : 'Main navigation'}
+      >
+        {t.nav.map((link) => {
+          const isActive = !link.href.includes('#') && currentPath.startsWith(link.href);
+          return (
+            <a
+              href={link.href}
+              class:list={[
+                'px-4 py-1.5 rounded-full text-sm font-semibold tracking-wide transition-all',
+                isActive
+                  ? 'bg-brand-accent/20 text-brand-accent border border-brand-accent/40'
+                  : 'text-white/85 hover:text-white hover:bg-white/[0.07]',
+              ]}
+            >
+              {link.label}
+            </a>
+          );
+        })}
+      </nav>
+
+      <div class="hidden md:flex items-center gap-4">
+        <!-- Language switcher -->
+        <div
+          class="inline-flex items-center rounded-full bg-white/[0.05] backdrop-blur-md border border-white/10 p-0.5 text-xs font-bold"
+          aria-label={lang === 'es' ? 'Selector de idioma' : 'Language selector'}
+        >
+          <a
+            href={esPath}
+            hreflang="es"
+            class:list={[
+              'px-2.5 py-1 rounded-full transition-all',
+              lang === 'es'
+                ? 'bg-brand-accent text-white shadow-[0_0_12px_rgba(238,118,60,0.45)]'
+                : 'text-white/65 hover:text-white',
+            ]}
+          >
+            ES
+          </a>
+          <a
+            href={enPath}
+            hreflang="en"
+            class:list={[
+              'px-2.5 py-1 rounded-full transition-all',
+              lang === 'en'
+                ? 'bg-brand-accent text-white shadow-[0_0_12px_rgba(238,118,60,0.45)]'
+                : 'text-white/65 hover:text-white',
+            ]}
+          >
+            EN
+          </a>
+        </div>
+
+        <a
+          href={SITE.phoneHref}
+          class="hidden lg:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 hover:border-brand-accent/50 text-sm font-semibold text-white/90 hover:text-white transition-all"
+        >
+          <span class="live-fleet-dot"></span>
+          {SITE.phone}
+        </a>
+      </div>
+
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/[0.06] border border-white/15 text-white hover:border-brand-accent hover:text-brand-accent focus:outline-none transition-colors"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label={lang === 'es' ? 'Abrir menú' : 'Open menu'}
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-[#0D0E12]/95 backdrop-blur-2xl border-t border-white/10">
+    <div class="px-4 pt-3 pb-5 space-y-2">
+      {t.nav.map((link) => (
+        <a
+          href={link.href}
+          class="block px-3.5 py-2.5 rounded-xl text-base font-medium text-white/90 hover:text-brand-accent hover:bg-white/[0.05]"
+        >
+          {link.label}
+        </a>
+      ))}
+      <div class="flex items-center justify-between px-3 pt-3 border-t border-white/10">
+        <a href={SITE.phoneHref} class="text-sm font-semibold text-brand-accent">
+          {SITE.phone}
+        </a>
+        <div class="inline-flex items-center rounded-full bg-white/5 border border-white/10 p-0.5 text-xs font-bold">
+          <a
+            href={esPath}
+            class:list={['px-2.5 py-1 rounded-full', lang === 'es' ? 'bg-brand-accent text-white' : 'text-white/70']}
+          >
+            ES
+          </a>
+          <a
+            href={enPath}
+            class:list={['px-2.5 py-1 rounded-full', lang === 'en' ? 'bg-brand-accent text-white' : 'text-white/70']}
+          >
+            EN
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  function setupMobileMenu() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('hidden');
+    });
+  }
+  setupMobileMenu();
+  document.addEventListener('astro:after-swap', setupMobileMenu);
+</script>

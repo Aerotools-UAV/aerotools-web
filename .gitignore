@@ -1,0 +1,19 @@
+# Build output
+dist/
+
+# Astro generated types
+.astro/
+
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+
+# Env files (never commit secrets)
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db

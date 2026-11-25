@@ -1,0 +1,46 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+import { SITE } from '../../data/site';
+---
+
+<Layout title="Privacy Policy" lang="en">
+  <section class="bg-brand-darker text-white py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-accent">
+        <a href="/en/" class="hover:underline">Home</a> / Privacy Policy
+      </p>
+      <h1 class="text-4xl font-extrabold mt-3">Privacy Policy</h1>
+    </div>
+  </section>
+
+  <article class="py-16 bg-brand-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-gray-300 leading-relaxed">
+      <p>
+        This Privacy Policy explains how {SITE.legalName} collects and processes personal data in accordance with the
+        EU General Data Protection Regulation (GDPR 2016/679) and Spanish Organic Law 3/2018 (LOPD-GDD).
+      </p>
+
+      <h2 class="text-2xl font-bold text-white pt-4">Data Controller</h2>
+      <ul class="list-disc pl-6 space-y-1">
+        <li><strong class="text-white">Controller:</strong> {SITE.legalName}</li>
+        <li><strong class="text-white">Tax ID (NIF/CIF):</strong> {SITE.nif}</li>
+        <li><strong class="text-white">Address:</strong> {SITE.addressLines.join(', ')}, Spain</li>
+        <li><strong class="text-white">Email:</strong> {SITE.email}</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-white pt-4">Your Data Rights</h2>
+      <p>You have the right to access, rectify, erase, restrict, object to the processing of, and request portability of your personal data.</p>
+      <p>
+        To exercise any of these rights, please write to
+        <a href={`mailto:${SITE.email}`} class="text-brand-accent font-semibold hover:underline">{SITE.email}</a>.
+        You also have the right to lodge a complaint with the Spanish Data Protection Agency (AEPD).
+      </p>
+
+      <h2 class="text-2xl font-bold text-white pt-4">Legal Basis &amp; Retention</h2>
+      <p>
+        Personal data is processed based on your explicit consent and retained only for as long as necessary to fulfill
+        the purpose for which it was collected or until you request its deletion.
+      </p>
+    </div>
+  </article>
+</Layout>

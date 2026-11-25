@@ -1,0 +1,45 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+
+const pages = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Drones y Sobre nosotros', href: '/#drones' },
+  { label: 'Proyectos I+D', href: '/#proyectos' },
+  { label: 'Servicios y Operaciones con Drones', href: '/#servicios' },
+  { label: 'Contacto', href: '/contacto' },
+  { label: 'Aviso Legal', href: '/aviso-legal' },
+  { label: 'Política de Privacidad', href: '/politica-de-privacidad' },
+  { label: 'Accesibilidad', href: '/accesibilidad' },
+  { label: 'Mapa Web', href: '/mapa-web' },
+];
+---
+
+<Layout title="Mapa Web">
+  <section class="bg-brand-darker text-white py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-accent">
+        <a href="/" class="hover:underline">Inicio</a> / Mapa Web
+      </p>
+      <h1 class="text-4xl font-extrabold mt-3">Mapa Web</h1>
+    </div>
+  </section>
+
+  <section class="py-16 bg-brand-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-white mb-6">Páginas</h2>
+      <ul class="space-y-3">
+        {pages.map((p) => (
+          <li>
+            <a
+              href={p.href}
+              class="inline-flex items-center gap-2 text-white hover:text-brand-accent font-medium transition-colors"
+            >
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
+              {p.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Layout>

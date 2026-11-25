@@ -1,0 +1,40 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../data/site';
+---
+
+<Layout title="Accesibilidad">
+  <section class="bg-brand-darker text-white py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-accent">
+        <a href="/" class="hover:underline">Inicio</a> / Accesibilidad
+      </p>
+      <h1 class="text-4xl font-extrabold mt-3">Accesibilidad</h1>
+    </div>
+  </section>
+
+  <article class="py-16 bg-brand-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-gray-300 leading-relaxed">
+      <p>
+        <strong class="text-white">AeroTools-UAV</strong> se ha comprometido a hacer accesible su sitio web de
+        conformidad con la norma UNE-EN 301 549 y las pautas WCAG 2.1.
+      </p>
+      <p>
+        En esta nueva versión del sitio web se han incorporado mejoras de accesibilidad como enlace directo para
+        saltar al contenido principal, estructura semántica de encabezados, contraste adecuado y navegación por
+        teclado.
+      </p>
+      <h2 class="text-2xl font-bold text-white pt-4">Comunicaciones y sugerencias</h2>
+      <p>Puede realizar comunicaciones sobre requisitos de accesibilidad como por ejemplo:</p>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Informar sobre cualquier posible incumplimiento por parte de este sitio web.</li>
+        <li>Transmitir otras dificultades de acceso al contenido.</li>
+        <li>Formular cualquier otra consulta o sugerencia de mejora relativa a la accesibilidad del sitio web.</li>
+      </ul>
+      <p>
+        A través del correo electrónico:
+        <a href={`mailto:${SITE.email}`} class="text-brand-accent font-semibold hover:underline">{SITE.email}</a>.
+      </p>
+    </div>
+  </article>
+</Layout>

@@ -1,0 +1,81 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../data/site';
+---
+
+<Layout title="Aviso Legal">
+  <section class="bg-brand-darker text-white py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-brand-accent">
+        <a href="/" class="hover:underline">Inicio</a> / Aviso Legal
+      </p>
+      <h1 class="text-4xl font-extrabold mt-3">Aviso Legal</h1>
+    </div>
+  </section>
+
+  <article class="py-16 bg-brand-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-gray-300 leading-relaxed">
+      <h2 class="text-2xl font-bold text-white">Datos del Responsable</h2>
+      <ul class="list-disc pl-6 space-y-1">
+        <li><strong class="text-white">Identidad del Responsable:</strong> {SITE.legalName}</li>
+        <li><strong class="text-white">Nombre comercial:</strong> Aerotools</li>
+        <li><strong class="text-white">NIF/CIF:</strong> {SITE.nif}</li>
+        <li><strong class="text-white">Dirección:</strong> {SITE.addressLines.join(', ')}</li>
+        <li><strong class="text-white">Correo electrónico:</strong> {SITE.email}</li>
+      </ul>
+
+      <p>
+        {SITE.legalName} (en adelante Aerotools), como responsable de esta web, asume el compromiso de procesar la
+        información de los usuarios y clientes con plenas garantías y cumplir con los requisitos nacionales y europeos
+        que regulan la recopilación y uso de los datos personales de los usuarios.
+      </p>
+      <p>
+        Esta web cumple con la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de
+        los derechos digitales (LOPD-GDD), con el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo (RGPD),
+        así como con la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio
+        Electrónico (LSSICE).
+      </p>
+
+      <h2 class="text-2xl font-bold text-white pt-4">Condiciones generales de uso</h2>
+      <p>
+        Las presentes Condiciones Generales regulan el uso (incluyendo el mero acceso) de las páginas web integrantes
+        del sitio web de Aerotools incluidos los contenidos y servicios puestos a disposición en ellas. Toda persona que
+        acceda a la web acepta someterse a las Condiciones Generales vigentes en cada momento.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white pt-4">Datos personales que se recaban</h2>
+      <p>
+        Consulta nuestra <a href="/politica-de-privacidad" class="text-brand-accent font-semibold hover:underline">Política de Privacidad</a>.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white pt-4">Compromisos y obligaciones de los usuarios</h2>
+      <p>
+        El acceso a la presente web no supone el inicio de una relación comercial con Aerotools. El usuario se
+        compromete a utilizar el sitio web, sus servicios y contenidos sin contravenir la legislación vigente, la buena
+        fe y el orden público. Queda prohibida la reproducción, distribución o modificación total o parcial de los
+        contenidos sin autorización de Aerotools, así como su utilización para fines comerciales o publicitarios.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white pt-4">Derechos de propiedad intelectual e industrial</h2>
+      <p>
+        En virtud de lo dispuesto en la Ley de Propiedad Intelectual, quedan expresamente prohibidas la reproducción,
+        la distribución y la comunicación pública de la totalidad o parte de los contenidos de esta página web con
+        fines comerciales sin la autorización de Aerotools.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white pt-4">Plataforma de resolución de conflictos</h2>
+      <p>
+        Se pone a disposición de los usuarios la plataforma de resolución de litigios en línea de la Comisión Europea:
+        <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="text-brand-accent hover:underline">
+          https://ec.europa.eu/consumers/odr/
+        </a>.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white pt-4">Contacto</h2>
+      <p>
+        Para cualquier duda acerca de estas condiciones legales, puedes dirigirte a
+        <a href={`mailto:${SITE.email}`} class="text-brand-accent font-semibold hover:underline">{SITE.email}</a>.
+      </p>
+    </div>
+  </article>
+</Layout>
