@@ -52,6 +52,8 @@ function doPost(e) {
   MailApp.sendEmail({
     to: DESTINO,
     replyTo: c.email,
+    name: 'Web Aerotools',
+    noReply: true,
     subject: 'Web aerotools.es — contacto de ' + c.nombre,
     body: cuerpo
   });
